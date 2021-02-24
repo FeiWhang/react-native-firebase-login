@@ -1,11 +1,10 @@
 import React, { memo } from 'react';
-import Logo from '../components/Logo';
 import Header from '../components/Header';
-import Paragraph from '../components/Paragraph';
 import Button from '../components/Button';
 import { Navigation } from '../types';
 import Background from '../components/Background';
 import { logOut } from '../firebase';
+import { Calculator } from 'react-native-calculator'
 
 type Props = {
   navigation: Navigation;
@@ -13,11 +12,8 @@ type Props = {
 
 const Dashboard = ({ navigation }: Props) => (
   <Background>
-    <Logo />
-    <Header>Let’s start</Header>
-    <Paragraph>
-      Firebase login register logout is amazing !!!
-    </Paragraph>
+    <Header>Let’s calculate</Header>
+        <Calculator width={300} height={300} />
     <Button mode="outlined" onPress={() => logOut(navigation)}>
       Logout
     </Button>
