@@ -31,7 +31,7 @@ const Register = ({ navigation }: Props) => {
     return (
       <Background>
   
-        <Header>Get started</Header>
+        <Header>Firebase Sign Up !</Header>
 
     
         <TextInput

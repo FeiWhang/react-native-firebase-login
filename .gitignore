@@ -15,3 +15,4 @@ web-report/
 .idea/
 GoogleService-Info.plist
 key.js
+google-services.json

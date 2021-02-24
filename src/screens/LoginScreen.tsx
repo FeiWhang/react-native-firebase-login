@@ -32,11 +32,17 @@ const LoginScreen = ({ navigation }: Props) => {
     setPassword({ value: '', error: ''});
   };
 
+  const _onRegisterPressed = () => {
+    navigation.navigate('Register');
+    setEmail({ value: '', error: ''});
+    setPassword({ value: '', error: ''});
+  }
+
   return (
     <Background>
       <Logo />
 
-      <Header>Welcome</Header>
+      <Header>Firebase Login !</Header>
 
       <TextInput
         label="Email"
@@ -67,7 +73,7 @@ const LoginScreen = ({ navigation }: Props) => {
 
       <Text>Not a member?</Text>
 
-      <Button mode="outlined" onPress={() => { navigation.navigate('Register');}}>
+      <Button mode="outlined" onPress={_onRegisterPressed}>
         Register
       </Button>
     </Background>

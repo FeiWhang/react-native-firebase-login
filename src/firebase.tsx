@@ -6,7 +6,7 @@ export async function register(email, password, navigation) {
     await firebase.auth().createUserWithEmailAndPassword(email, password);
 
     navigation.navigate('LoginScreen');
-    Alert.alert("Successfully Registered!", "You can sign in now");
+    Alert.alert("Successfully Registered", "You can now sign in, Get started now!");
   } catch (err) {
     Alert.alert("Fail to register...", err.message);
   }
@@ -14,8 +14,6 @@ export async function register(email, password, navigation) {
 
 export async function logIn(email, password, navigation) {
   try {
-      console.log(email);
-      console.log(password);
    await firebase
       .auth()
       .signInWithEmailAndPassword(email, password);
