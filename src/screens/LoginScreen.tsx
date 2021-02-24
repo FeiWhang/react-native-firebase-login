@@ -1,13 +1,13 @@
-import React, { memo, useState } from 'react';
+import React, { memo, useState, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Background from '../components/Background';
 import Logo from '../components/Logo';
 import Header from '../components/Header';
 import Button from '../components/Button';
 import TextInput from '../components/TextInput';
-import { theme } from '../core/theme';
 import { emailValidator, passwordValidator } from '../core/utils';
 import { Navigation } from '../types';
+import { logIn } from '../firebase';
 
 type Props = {
   navigation: Navigation;
@@ -27,7 +27,9 @@ const LoginScreen = ({ navigation }: Props) => {
       return;
     }
 
-    navigation.navigate('Dashboard');
+    logIn(email.value, password.value, navigation);
+    setEmail({ value: '', error: ''});
+    setPassword({ value: '', error: ''});
   };
 
   return (
@@ -62,27 +64,18 @@ const LoginScreen = ({ navigation }: Props) => {
       <Button mode="contained" onPress={_onLoginPressed}>
         Login
       </Button>
+
+      <Text>Not a member?</Text>
+
+      <Button mode="outlined" onPress={() => { navigation.navigate('Register');}}>
+        Register
+      </Button>
     </Background>
   );
 };
 
 const styles = StyleSheet.create({
-  forgotPassword: {
-    width: '100%',
-    alignItems: 'flex-end',
-    marginBottom: 24,
-  },
-  row: {
-    flexDirection: 'row',
-    marginTop: 4,
-  },
-  label: {
-    color: theme.colors.secondary,
-  },
-  link: {
-    fontWeight: 'bold',
-    color: theme.colors.primary,
-  },
+
 });
 
 export default memo(LoginScreen);

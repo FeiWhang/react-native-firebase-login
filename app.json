@@ -17,7 +17,13 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
+      "bundleIdentifier": "com.rnfirebaselogin.rnfirebaselogin",
+      "googleServicesFile": "./GoogleService-Info.plist",
       "supportsTablet": true
+    },
+    "android": {
+      "package": "com.rnfirebaselogin.rnfirebaselogin",
+      "googleServicesFile": "./google-services.json"
     }
   }
 }

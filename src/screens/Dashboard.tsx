@@ -5,6 +5,7 @@ import Paragraph from '../components/Paragraph';
 import Button from '../components/Button';
 import { Navigation } from '../types';
 import Background from '../components/Background';
+import { logOut } from '../firebase';
 
 type Props = {
   navigation: Navigation;
@@ -15,10 +16,9 @@ const Dashboard = ({ navigation }: Props) => (
     <Logo />
     <Header>Let’s start</Header>
     <Paragraph>
-      Your amazing app starts here. Open you favourite code editor and start
-      editing this project.
+      Firebase login register logout is amazing !!!
     </Paragraph>
-    <Button mode="outlined" onPress={() => navigation.navigate('LoginScreen')}>
+    <Button mode="outlined" onPress={() => logOut(navigation)}>
       Logout
     </Button>
   </Background>
